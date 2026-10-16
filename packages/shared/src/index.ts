@@ -5,4 +5,7 @@
 // Owned by Sakib.
 
 export * from './errors';
+export * from './fixtures';
+export * from './helpers';
+export * from './labels';
 export * from './types';
