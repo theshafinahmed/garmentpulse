@@ -88,6 +88,7 @@ Every feature below is marked **MUST** (needed for the first version) or **SHOUL
 - The owner sees who asked, the amount, the reason, and the receipt before deciding.
 - Expenses above the limit are **blocked** until the owner decides.
 - The manager is notified after the owner decides, and can only proceed after approval.
+- If the owner says no, the expense stays in the list with a **Rejected** label and the owner's short reason, so the manager always knows.
 - **The limit is set in the owner's settings.** The owner can change it from the app. No fixed amount is written in this document.
 
 ### 4.6 Camera presence monitoring (Subscription feature)
@@ -112,7 +113,7 @@ Every feature below is marked **MUST** (needed for the first version) or **SHOUL
 - The app supports **Bangla and English**.
 - Every screen has a **Bangla / EN toggle**.
 - Voice input works in **both Bangla and English**.
-- **Big icon buttons** and a **simple dropdown** are used, so no screen is confusing.
+- **Easy-to-tap icon buttons** (at least 48 px tall on phones) and a **simple dropdown** are used, so no screen is confusing.
 - **Color-coded status** (for example: waiting, in progress, resolved) helps everyone see the state at a glance.
 - **Must-have rule:** Every important button must be easy to find and easy to understand. No hidden or confusing button flows.
 

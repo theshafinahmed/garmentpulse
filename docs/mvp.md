@@ -57,13 +57,14 @@ Each feature below comes from [prd.md](prd.md). The number (for example FR-01) l
 
 - The owner logs in on the **web app**.
 - The owner can **see all reports and their status**. This is for watching only.
+- The owner web app is **one screen**: a read-only list of all reports, with three count boxes on top (Waiting, In progress, Resolved). It has no menu links.
 - The owner cannot approve, change or assign anything in the MVP. Approval comes later (see section 3).
 
 ### 2.6 Simple language support (section 5 of PRD)
 
 - The app has **2 languages: Bangla and English**.
 - The language **switch is small** and sits in the **top-right corner** of the app, on every screen. It is a small, simple button, not a big one.
-- **Big buttons** and **simple dropdowns** for the main actions.
+- **Easy-to-tap buttons** (48 px tall on phones) and **simple dropdowns** for the main actions.
 - **Colour-coded status** (for example: waiting = yellow, in progress = blue, resolved = green).
 
 ---

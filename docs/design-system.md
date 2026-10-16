@@ -41,7 +41,7 @@ These were chosen by the team. The rest of this file follows them.
 | Cloth look | **Light**: keep the stitch lines, keep backgrounds plain (no heavy fabric patterns) |
 | Status colours | **Same meaning for everyone** (yellow, blue, green), in soft shades that sit well on every user's colour |
 | Report statuses | **3 only**: Waiting, In progress, Resolved |
-| Expense statuses | **2 only**: Waiting, Approved. A rejected expense leaves the list |
+| Expense statuses | **3 only**: Waiting, Approved, Rejected. A rejected expense stays in the list with the owner's short reason |
 | Fonts | The **manager dashboard fonts**: Cormorant Garamond, Jost, IBM Plex Mono |
 | Bangla font | The **device's own** Bangla font. No extra Bangla font is added |
 | Language | **One language at a time**, changed with a small switch in the top-right corner |
@@ -171,29 +171,30 @@ A status label tells you where something is in its journey. The colours mean the
 | **In progress** | A technician is working on it | `#DCE2EE` (soft blue) | `#263B66` | কাজ চলছে |
 | **Resolved** | Fixed | `#E1E5CC` (soft green) | `#4A5320` | সমাধান হয়েছে |
 
-The Bangla words are a first suggestion. A Bangla speaker on the team should check them.
+The Bangla words for every status in sections 4.1 to 4.3 were approved by the team.
 
-### 4.2 Expense statuses (2)
+### 4.2 Expense statuses (3)
 
-| Status | Meaning | Uses the colours of |
-|---|---|---|
-| **Waiting** | Above the owner's limit, waiting for the owner | Waiting (soft yellow) |
-| **Approved** | The owner said yes, or it was under the limit | Resolved (soft green) |
+| Status | Meaning | Uses the colours of | Bangla word |
+|---|---|---|---|
+| **Waiting** | Above the owner's limit, waiting for the owner | Waiting (soft yellow) | অপেক্ষমাণ |
+| **Approved** | The owner said yes, or it was under the limit | Resolved (soft green) | অনুমোদিত |
+| **Rejected** | The owner said no | Error colours from section 3.6 (soft red) | প্রত্যাখ্যাত |
 
-A **rejected** expense has no label. It leaves the list.
+A **rejected** expense stays in the list with its label and the owner's short reason, so the manager always knows what happened.
 
 ### 4.3 Technician availability
 
-| Label | Uses the colours of |
-|---|---|
-| **Free** | Resolved (soft green) |
-| **Busy** | In progress (soft blue) |
+| Label | Uses the colours of | Bangla word |
+|---|---|---|
+| **Free** | Resolved (soft green) | ফ্রি |
+| **Busy** | In progress (soft blue) | ব্যস্ত |
 
 ### 4.4 Rules for status labels
 
 - **Always show the word.** Never a coloured dot alone. Some people cannot tell colours apart.
 - On **phones**, also put a small icon before the word.
-- Use **only** the colours above for status. Do not invent a new status colour for one screen.
+- Use **only** the colours above for status (the soft red of "Rejected" is the error colour from section 3.6). Do not invent a new status colour for one screen.
 - The step tracker on a worker's report has **3 steps**: Waiting, In progress, Resolved.
 
 ---
@@ -372,6 +373,7 @@ The stitch line is what makes the app feel like GarmentPulse. Keep it **light**.
 
 - Menu link: 40 px tall, 14 px Jost 500. The chosen one is white with a soft see-through white background and a dashed outline.
 - Logo tile: 36 px square, 9 px corners, letter "G" in Cormorant Garamond 700.
+- In the first version the owner's web app is one screen, so its top bar has **no menu links**: only the logo, the role name and the language switch.
 
 ### 9.6 Bottom tab bar (phone only)
 
@@ -450,7 +452,7 @@ The stitch line is what makes the app feel like GarmentPulse. Keep it **light**.
 - The person's messages: role's Main button colour, on the right.
 - The chatbot's messages: role's Card colour with the card border, on the left.
 - The typing box follows the input rules (section 9.4), with a Main button to send.
-- Text only in the first version (see [mvp.md](mvp.md) section 2.8).
+- Text only in the first version.
 
 ---
 
@@ -505,7 +507,7 @@ The sample screens were a first try. The team then made choices that change a fe
 | Fabric patterns | Denim, silk, check and woven backgrounds | Plain colours with stitch lines only |
 | Main buttons | Shiny silk gradient | One flat colour (the middle colour of that gradient) |
 | Status colours | Shades of each role's own colour | Yellow, blue, green for everyone |
-| Number of statuses | 7 (Submitted, Under review, Assigned, In progress, Resolved, Waiting on owner, Rejected) | 3 for reports, 2 for expenses |
+| Number of statuses | 7 (Submitted, Under review, Assigned, In progress, Resolved, Waiting on owner, Rejected) | 3 for reports, 3 for expenses |
 | Worker step tracker | 5 steps | 3 steps |
 | Language | English and Bangla shown together on worker screens | One language at a time |
 | Bangla font | Hind Siliguri | The device's own Bangla font |
@@ -518,9 +520,6 @@ The sample screens were a first try. The team then made choices that change a fe
 
 These are not final yet. The team should decide them before building the related screens.
 
-- **Rejected expenses:** this file says a rejected expense leaves the list. But [prd.md](prd.md) FR-05 says the manager is told after the owner decides. The team must decide how the manager finds out about a "no" (for example, a short message).
-- **Button size:** [prd.md](prd.md) section 5 and [mvp.md](mvp.md) section 2.7 ask for "big buttons". This file uses normal 48 px phone buttons. The team should confirm this, then update one of the documents so they agree.
-- **Bangla status words:** the words in section 4.1 need a check by a Bangla speaker.
-- **Owner web screens:** the colours are decided (dark red), but the owner's screens and menu links are not designed yet.
+- **Owner web screen:** the colours (dark red) and the content are decided: one read-only list of all reports with three count boxes on top, and no menu links ([mvp.md](mvp.md) section 2.5). The screen itself has not been drawn yet.
 - **Camera / floor presence screens:** not in the first version ([mvp.md](mvp.md) section 3), so they are not covered here.
 - **Voice report player:** shown in the sample, but voice input is not in the first version, so it is not covered here.
