@@ -48,7 +48,6 @@ These were chosen by the team. The rest of this file follows them.
 | Numbers in Bangla | **Bangla digits** (২,৪০০). IDs such as `C-2041` always stay in English |
 | Dark mode | **No.** Light look only |
 | Phone buttons | **Normal size** (48 px tall), not the extra-tall ones in the sample |
-| Owner mobile app | **Same dark red** as the owner web app |
 | Login screen | **Manager dark blue** (nobody has a role yet, so blue is the "main brand" colour) |
 | Chatbot | Takes the colour of **whoever is logged in** |
 | Icons | **Lucide** icon set |
@@ -94,7 +93,7 @@ Every user type (called a **role**) has the same list of colour jobs. Only the c
 | Count bubble | `#A8622B` | The small number next to a menu item. Text `#FFF7EC` |
 | Logo tile | `#DCC593` | The square with "G". Letter `#3A2E14` |
 
-### 3.3 Owner - dark red (web and mobile)
+### 3.3 Owner - dark red (web)
 
 | Colour job | Code | Notes |
 |---|---|---|
@@ -364,7 +363,7 @@ The stitch line is what makes the app feel like GarmentPulse. Keep it **light**.
 
 ### 9.5 Top bar
 
-| | Web (manager, owner) | Phone (worker, technician, owner) |
+| | Web (manager, owner) | Phone (worker, technician) |
 |---|---|---|
 | Left | Logo tile "G" + "GarmentPulse" + the role name | Same, or a back arrow on inner screens |
 | Middle | Menu links with icons | Page title under the first row |
@@ -385,7 +384,6 @@ The stitch line is what makes the app feel like GarmentPulse. Keep it **light**.
 |---|---|
 | Worker | Home, Report, My reports |
 | Technician | Jobs, History |
-| Owner | To be decided when the owner mobile screens are designed |
 
 ### 9.7 Tables (web only)
 
@@ -458,7 +456,7 @@ The stitch line is what makes the app feel like GarmentPulse. Keep it **light**.
 
 ## 11. Phone and web layout
 
-| | Web (manager, owner) | Phone (worker, technician, owner) |
+| | Web (manager, owner) | Phone (worker, technician) |
 |---|---|---|
 | Design width | 1440 px | 390 px |
 | Navigation | Top bar with menu links | Top bar + bottom tab bar |
@@ -523,6 +521,6 @@ These are not final yet. The team should decide them before building the related
 - **Rejected expenses:** this file says a rejected expense leaves the list. But [prd.md](prd.md) FR-05 says the manager is told after the owner decides. The team must decide how the manager finds out about a "no" (for example, a short message).
 - **Button size:** [prd.md](prd.md) section 5 and [mvp.md](mvp.md) section 2.7 ask for "big buttons". This file uses normal 48 px phone buttons. The team should confirm this, then update one of the documents so they agree.
 - **Bangla status words:** the words in section 4.1 need a check by a Bangla speaker.
-- **Owner mobile screens:** the colours are decided (dark red), but the screens and the tabs are not designed yet.
+- **Owner web screens:** the colours are decided (dark red), but the owner's screens and menu links are not designed yet.
 - **Camera / floor presence screens:** not in the first version ([mvp.md](mvp.md) section 3), so they are not covered here.
 - **Voice report player:** shown in the sample, but voice input is not in the first version, so it is not covered here.

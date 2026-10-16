@@ -20,7 +20,7 @@ GarmentPulse is made of **four parts** that talk to each other.
 
 | Part | What it is | What it does |
 |---|---|---|
-| **Client layer** | The apps people see and touch | Worker and technician mobile app, manager web dashboard, owner web and mobile app |
+| **Client layer** | The apps people see and touch | Worker and technician mobile app, manager web dashboard, owner web dashboard |
 | **Backend layer** | The "brain" behind the apps (Supabase) | Login and role checks, problem reports, dispatch and expenses, owner approval, presence alerts, and the AI chatbot connection |
 | **Database** | Where information is stored (PostgreSQL) | Stores users, reports and expenses |
 | **Camera system** | IP cameras in the factory | Sends presence data (person or no person at a seat) to the backend |
@@ -38,7 +38,7 @@ GarmentPulse is made of **four parts** that talk to each other.
 
 | Part | Technology |
 |---|---|
-| Mobile app (worker, technician, owner) | React Native |
+| Mobile app (worker, technician) | React Native |
 | Web app (manager, owner) | Next.js (React) |
 | Backend, login and API | Supabase (auth and auto-generated REST API) |
 | Database | PostgreSQL (through Supabase) |
@@ -56,7 +56,7 @@ GarmentPulse is made of **four parts** that talk to each other.
 | **Worker** | Mobile app | React Native |
 | **Technician** | Mobile app | React Native |
 | **Manager** | Web app (dashboard) | Next.js |
-| **Owner** | Web and mobile | Next.js and React Native |
+| **Owner** | Web app (dashboard) | Next.js |
 
 ---
 
@@ -69,7 +69,7 @@ Each rule is marked **MUST** (needed for the first version) or **SHOULD** (nice 
 - **NFR-03 (PLATFORMS, MUST):**
   - Worker and technician features: **mobile app**.
   - Manager features: **web app**.
-  - Owner features: **web and mobile**.
+  - Owner features: **web app**.
 - **NFR-04 (HISTORY, SHOULD):** Keep reports, assignments and expense history for at least **12 months**.
 
 ---
@@ -93,9 +93,9 @@ The MVP is the first working version (see [mvp.md](mvp.md)). It uses the same te
 
 | Part | In the MVP? | Notes |
 |---|---|---|
-| Mobile app (React Native) | **Yes** | Worker, technician and a **read-only owner view**. Tested on Android and iPhone. |
+| Mobile app (React Native) | **Yes** | Worker and technician. Tested on Android and iPhone. |
 | Manager web dashboard (Next.js) | **Yes** | Live report list, technician free/busy, assign, queue. |
-| Owner web app (Next.js) | Later | The owner uses the mobile app only in the MVP. |
+| Owner web app (Next.js) | **Yes** | A **read-only view** of all reports and their status. Approval comes later. |
 | Backend and database (Supabase, PostgreSQL) | **Yes** | Login, roles, reports, dispatch, queue, job status. |
 | Expenses, invoices and owner approval | Later | Comes after the report-and-repair flow works. |
 | AI chatbot (Google Gemini) | Later | Still called only from the backend when it is built. |
@@ -104,5 +104,5 @@ The MVP is the first working version (see [mvp.md](mvp.md)). It uses the same te
 **Quality rules in the MVP:**
 
 - NFR-01 (speed) and NFR-02 (role checks on the server) apply fully.
-- NFR-03 (platforms) applies with one change: owner features are **mobile only** for now.
+- NFR-03 (platforms) applies fully. In the MVP the owner has a read-only view on the web app.
 - NFR-04 (history) is not needed for the first test.
