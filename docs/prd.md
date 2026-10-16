@@ -46,7 +46,7 @@ There are **4 user types**.
 | **Worker** | Mobile app | Reports problems by dropdown or voice. Tracks their report. |
 | **Technician** | Mobile app | Sees assigned jobs, updates status, sends invoices and receipts. |
 | **Manager** | Web app (dashboard) | Sees all reports, assigns technicians, reviews and records costs. |
-| **Owner** | Web and mobile | Approves high-cost expenses. Sees the overall picture of the factory. |
+| **Owner** | Web app (dashboard) | Approves high-cost expenses. Sees the overall picture of the factory. |
 
 ---
 

@@ -55,7 +55,7 @@ Each feature below comes from [prd.md](prd.md). The number (for example FR-01) l
 
 ### 2.5 Owner view (read-only)
 
-- The owner logs in on the **mobile app**.
+- The owner logs in on the **web app**.
 - The owner can **see all reports and their status**. This is for watching only.
 - The owner cannot approve, change or assign anything in the MVP. Approval comes later (see section 3).
 
@@ -82,7 +82,6 @@ These are in the full PRD but are **moved to later versions** to keep the first 
 | Free and paid versions (subscription) | Section 6 | No payment or billing needed to test the main idea. |
 | 12-month history limit and user limits | Section 6, NFR-04 | Not needed for the first test. |
 | Push notifications to phones | FR-05, FR-06 | Can start with in-app status updates only. |
-| Owner web app | NFR-03 | The owner uses the mobile app only in the MVP. |
 
 **Out of scope everywhere (already in PRD section 7):** stock, production planning, payroll, face recognition.
 
@@ -111,7 +110,7 @@ The MVP is finished when all of these are true:
 - [ ] The manager sees the report within **5 seconds** (see NFR and FR-01 in [prd.md](prd.md)).
 - [ ] The manager can assign a free technician, and the report waits in a queue when all are busy.
 - [ ] A technician can accept a job, change its status, and see past jobs.
-- [ ] The owner can see all reports and their status on the mobile app, but cannot change anything.
+- [ ] The owner can see all reports and their status on the web app, but cannot change anything.
 - [ ] A worker cannot open owner or manager screens, even by typing the address.
 - [ ] The main screens work in both Bangla and English.
 
@@ -121,7 +120,7 @@ The MVP is finished when all of these are true:
 
 These are not decided yet. The team should answer them before building the related step.
 
-- **Platform for the first test:** Decided: the worker, technician and owner mobile apps are tested on **both Android and iPhone**.
+- **Platform for the first test:** Decided: the worker and technician mobile apps are tested on **both Android and iPhone**. The owner uses the web app, so there is no owner mobile app.
 - **Voice input:** Decided: it waits for a later version.
 - **Chatbot, invoice and receipt, owner approval:** Decided: all three wait for a later version (see section 3).
 - **Owner expense limit:** Not needed for the MVP. It comes back with owner approval later.
