@@ -5,7 +5,7 @@ This file is read when a session works inside `supabase/`. It adds to the root [
 ## Whose folder is this?
 
 - **Owner of this folder: Sakib.** Only Sakib's sessions change files here.
-- If you are working for Rubaiya or Mithi, you may **read** this folder but must **not change** it. If their app needs something from the backend, they write a short, plain request and give it to Sakib.
+- If you are working for Rubaiya or Mithi, you may **read** this folder but must **not change** it. If their app needs something from the backend, they write a short, plain note in `requests/sakib/` (layout in `requests/README.md`).
 - Not sure who you are working for? Read `CLAUDE.local.md` in the top folder, or ask.
 
 ## What this folder is
@@ -34,6 +34,8 @@ These folders are empty for now (they only hold a placeholder file).
 
 ## Backend rules
 
+- At the start of a session, follow the start checklist in the root `CLAUDE.md`, and read `requests/sakib/` for open notes from Rubaiya and Mithi. Before you finish, update [`STATUS.md`](./STATUS.md) in this folder.
+- `packages/shared/` is also yours. Keep `src/types.ts`, `src/errors.ts` and `src/labels.ts` in step with `docs/api-contract.md`, and keep the fake data in `src/fixtures.ts` realistic.
 - **Never edit an old migration.** Every change is a **new** migration file.
 - **Row Level Security (a lock on each table row) is on for every table.** A new table without it is a bug.
 - **Apps never write tables directly.** Important changes happen only through functions that check permissions and run in one step.

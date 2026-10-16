@@ -40,11 +40,13 @@ This file is read when a session works inside `apps/web/`. It adds to the root [
 
 ## Needs something outside this folder?
 
-- A new or changed backend function, a database change, or a change in `packages/shared`: **ask Sakib.** Write a short, plain request saying what the page needs. Do not edit those folders yourself.
+- A new or changed backend function, a database change, or a change in `packages/shared`: **ask Sakib.** Write a short, plain note in `requests/sakib/` (layout in `requests/README.md`), tell Mithi about it, and keep going with fake data from `@garmentpulse/shared`. Do not edit those folders yourself.
 - A change to the plan documents or the root `CLAUDE.md`: suggest it in a pull request and mark it as needing Sakib's review.
 
 ## Working style for this folder
 
+- At the start of a session, follow the start checklist in the root `CLAUDE.md` (who am I, pull, install, mailbox, status). Before you finish, update [`STATUS.md`](./STATUS.md) in this folder.
+- Use the fake data in `@garmentpulse/shared` (`FAKE_MACHINES`, `FAKE_REPORTS`, `FAKE_TECHNICIANS`) and the words in its `labels.ts`. Do not make your own copies.
 - Every file starts with a short comment saying what it is for, in plain words.
 - Keep pages simple. Prefer small files that do one thing.
 - Do not change the React version (`react` and `react-dom` are pinned to the same version as the mobile app on purpose, so the two apps do not fight). Ask Sakib if an upgrade is needed.

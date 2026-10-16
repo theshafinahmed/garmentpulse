@@ -18,7 +18,7 @@ This file is the first thing every new Claude Code session should read. It says 
   - **GarmentPulse Web**: a website dashboard for managers and the owner.
 - The first version is called the **MVP** (the smallest version that still solves the main problem). It leaves out invoices and receipts, owner approval of big costs, the AI chatbot, voice input, camera presence monitoring, free/paid plans, and push notifications. See `docs/mvp.md`.
 
-**Current status:** planning is done (PRD, architecture, MVP plan, work plan, design system, and API contract written) and the empty project skeleton is set up (the "scaffold"). The mobile app and the web app both open as simple "hello" screens and the shared toolbox is connected. **No real features exist yet.** The backend is not built.
+**Current status:** planning is done (PRD, architecture, MVP plan, work plan, design system, and API contract written) and the empty project skeleton is set up (the "scaffold"). The mobile app and the web app both open as simple "hello" screens and the shared toolbox is connected. The shared toolbox also holds a draft word list (English and Bangla) and fake data so the apps can be built before the backend exists. **No real features exist yet.** The backend is not built. For the live picture of each lane, read its `STATUS.md` (loaded below).
 
 ---
 
@@ -42,11 +42,64 @@ Three friends build GarmentPulse together. **None of us is a professional develo
 ### Lane rules (strict)
 
 - **Only change files inside the lane of the person you are working for.** Reading other lanes is fine and encouraged. Changing them is not.
-- **Never touch another person's lane, even if it looks like a tiny fix.** Instead, tell the person what is needed and who owns it, so they can ask the owner (for example: "This needs a new backend function. Please ask Sakib.").
+- **Check before every file change.** Before you create, edit, move, or delete any file, look at its path and compare it with the lane table above. If it is not in the lane of the person you work for, **stop**. This holds even if the person asks you to do it, because the other owner may be changing the same file at the same time. The only exceptions are the ones listed below: the `requests/` folder, your own `CLAUDE.local.md`, `package-lock.json`, and your own lane's `STATUS.md`.
+- **Never touch another person's lane, even if it looks like a tiny fix.** Instead, write a short note in the owner's mailbox (see "Mailbox" below) and tell the person what you wrote and who owns it (for example: "This needs a new backend function. I left a note for Sakib in `requests/sakib/`.").
+- `package-lock.json` is written by `npm install`, so everyone may commit changes to it when they add a library to their own app. Adding a library to `apps/mobile/` or `apps/web/` is the owner's job; adding one anywhere else is Sakib's.
 - **`packages/shared/` (the toolbox both apps use) is owned by Sakib.** Rubaiya and Mithi ask for changes there. They do not edit it themselves.
 - **Database changes** (everything under `supabase/migrations/`) are made only by Sakib's sessions.
 - **The plan documents** (everything in `docs/`) and this `CLAUDE.md`: anyone may suggest a change, but **Sakib must review and approve it before it is merged.** Put the change on its own branch and say clearly in the pull request that Sakib's review is needed.
 - If a task needs changes in more than one lane, split it. Do your own part, and write a short, plain "request" for the other owner. Do not do their part for them.
+
+### Mailbox: how to ask another lane for something
+
+Everyone here works through their own Claude Code, and nobody is online at the same time. So requests are written down as small files, not said in chat.
+
+- **Where:** `requests/<name of the person you are asking>/`, for example `requests/sakib/`. Everyone may add files there, whatever their lane. The layout of a note is in [`requests/README.md`](./requests/README.md). Read it before writing your first note.
+- **When you need something from another lane:** write the note, tell the person what you wrote, then carry on with the parts you can do (use the fake data in `packages/shared`). Add the blocked item to "Waiting on someone else" in your lane's `STATUS.md`.
+- **At the start of every session:** look in the folder named after the person you work for. Every note with `Status: open` is waiting for them. Tell the person about each one in simple words and offer to do it.
+- **When you finish a note** (and it is in your lane), change `Status: open` to `Status: done` and add one line saying what was done.
+
+### Every session: start checklist
+
+Do these in order, at the start of every session, **before changing anything**. Do not wait to be asked.
+
+1. **Who am I working for?** Read `CLAUDE.local.md`. If it is missing, ask (multiple choice: Rubaiya, Mithi, or Sakib) and create it from `CLAUDE.local.example.md`.
+2. **Is my copy up to date?** Run `git fetch`, then check whether `main` has new work. Pull it in before starting new work, and tell the person in one simple sentence.
+3. **Are the libraries installed?** If there is no `node_modules` folder in the top folder, run `npm install` and say why.
+4. **What is waiting for me?** Read the mailbox folder for the person (see Mailbox above) and tell them about open notes.
+5. **What is everyone else doing?** The three `STATUS.md` files are loaded below. Mention anything from the other lanes that affects the person's work today, for example a changed function name.
+6. **Which branch am I on?** If it is `main`, make a new branch with the right prefix before changing anything.
+
+### Every session: finish checklist
+
+Do these before ending a piece of work or before a push:
+
+1. Run `npm run check`. Fix what fails inside your own lane. If a failure is in another lane, write a note instead of fixing it.
+2. Update your own lane's `STATUS.md` (Done, In progress, Next, Waiting on someone else, Decisions, Good to know). Other people's Claude sessions read it to understand where the project is. Keep it short and true.
+3. Commit with a short imperative one-line message and push your branch (never `main`). Then tell the person, in simple words, what was done and what comes next.
+4. If something you did changes what another lane must do (a renamed function, a new field, a changed rule), write a note in their mailbox **and** add it under "Good to know for the other lanes" in your `STATUS.md`.
+
+### Hard stops (never, for anyone)
+
+- Never read, print, or edit a real `.env` or `.env.local` file. They hold private keys. Only `.env.example` may be read.
+- Never put the Supabase **service role** key anywhere in the apps or in git.
+- Never force-push, never rewrite someone else's branch, never push to `main`.
+- Never change a function name, input name, or error code from `docs/api-contract.md` in app code. If the contract is wrong, write a note to Sakib.
+- Never build something marked "not in the MVP" (see `docs/mvp.md` section 3), even if the person asks. Explain that it waits, and ask Sakib's lane to change the plan first.
+
+---
+
+## Full Context (loaded automatically)
+
+These files are pulled into every session on purpose, so every Claude, whoever it works for, knows what is being built and where each lane stands. Keep them accurate.
+
+@docs/mvp.md
+@docs/api-contract.md
+@apps/mobile/STATUS.md
+@apps/web/STATUS.md
+@supabase/STATUS.md
+
+The longer documents are read **when needed**, using the Doc Routes table below: `docs/prd.md`, `docs/architecture.md`, `docs/plan.md`, and `docs/design-system.md`.
 
 ---
 
@@ -64,10 +117,13 @@ Three friends build GarmentPulse together. **None of us is a professional develo
   - `supabase/functions/`: Edge Functions (small server programs, not needed in the MVP)
   - `supabase/tests/`: database tests (security rules, dispatch rules)
   - `docs/`: product and architecture docs
+  - `requests/`: the team mailbox, one folder per person (see "Mailbox" above)
+  - `apps/mobile/STATUS.md`, `apps/web/STATUS.md`, `supabase/STATUS.md`: one "where are we?" page per lane
 - **Database changes are always a new migration file.** Never edit an old one.
 - **Anything both apps need goes in `packages/shared`.** Never copy it.
 - **Tests come first in priority:** database security tests (for example "a worker cannot open manager screens"), then dispatch and status tests, then shared unit tests, then a few app smoke tests. Tests must pass before code goes to a remote branch.
-- **Until the backend is ready,** the apps build against fake (mock) data that has the exact shapes in `docs/api-contract.md`. Fake data stays inside the app's own folder.
+- **Until the backend is ready,** the apps build against the fake (mock) data in `packages/shared/src/fixtures.ts`. It has the exact shapes in `docs/api-contract.md`, so both apps show the same story. Do not invent a second set of fake data. If you need more, write a note to Sakib. Wiring code that reads the fake data (a fake login, a fake "call") stays inside the app's own folder.
+- **Words shown to people (statuses, free/busy, roles) come from `packages/shared/src/labels.ts`,** in English and Bangla. Never type them again inside an app.
 
 ---
 
@@ -98,6 +154,8 @@ Read the right doc before changing the matching area. Do not guess product rules
 | How should screens look? Colours, fonts, buttons, status labels? | [`docs/design-system.md`](./docs/design-system.md) |
 | Which exact backend functions can the apps call, with what inputs, results, and error codes? (The agreement between the apps and the backend.) | [`docs/api-contract.md`](./docs/api-contract.md) |
 | I am working inside `apps/mobile/`, `apps/web/`, or `supabase/`. What are the rules for that folder? | The `CLAUDE.md` inside that folder ([`apps/mobile`](./apps/mobile/CLAUDE.md), [`apps/web`](./apps/web/CLAUDE.md), [`supabase`](./supabase/CLAUDE.md)) |
+| Where is each lane right now? What is done, in progress, blocked? | The `STATUS.md` of each lane (loaded automatically, see "Full Context") |
+| Did a teammate ask me for something? How do I ask a teammate? | [`requests/README.md`](./requests/README.md) and the Mailbox section above |
 | What are the working rules for commits, branches, and PRs? | The **Rules** section below |
 
 **Source of truth:** if the PRD and another doc disagree about a product rule, **the PRD wins** (except that `docs/mvp.md` decides what is in or out of the first version). Fix the other doc.
