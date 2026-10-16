@@ -9,6 +9,7 @@
 - [prd.md](prd.md) - **what** the app does and **who** uses it (features, users, pricing).
 - [architecture.md](architecture.md) - **how** the app is built (technology, structure, quality rules).
 - [mvp.md](mvp.md) - **which features** are in the first version and which wait.
+- [api-contract.md](api-contract.md) - **the agreement** between the apps and the backend.
 
 ---
 
@@ -49,7 +50,7 @@ There is one owner per layer of the stack. All members help with system design, 
 
 ### 3.1 Rules for working independently
 
-- One repository with one folder each: **/backend** (Sakib), **/mobile** (Rubaiya), **/web** (Mithi). Shared notes live in **/docs**.
+- One repository with one folder each: **supabase/** (Sakib, the backend), **apps/mobile/** (Rubaiya), **apps/web/** (Mithi). Code both apps use lives in **packages/shared/** (Sakib). Shared notes live in **docs/**. The strict rules for lanes are in the root `CLAUDE.md`.
 - Each person works on their own branch and does not edit another person's folder.
 - Rubaiya and Mithi use **fake (mock) data** until the backend is ready, so nobody waits.
 - Sakib provides **test data** and a **Postman collection** early, so the apps can be checked against the real backend.
@@ -72,7 +73,7 @@ There is one owner per layer of the stack. All members help with system design, 
 | Step | Shared work | Why it needs all three |
 |---|---|---|
 | ★1 | Database design and the "who can do what" table | Everyone depends on it, so we agree before any coding. |
-| ★2 | The API agreement: what each screen asks for and gets back. **Sakib drafts it, all three review.** | It lets the apps use fake data while the real backend is built. |
+| ★2 | The API agreement ([api-contract.md](api-contract.md)): what each screen asks for and gets back. **Sakib drafts it, all three review.** A first draft exists; the team still needs to review it. | It lets the apps use fake data while the real backend is built. |
 | ★3 | Word list: status names, colours and Bangla/English text | The same words must appear on mobile and web. |
 | ★4 | Connect the real backend to both apps | It is where the independent parts first meet. |
 | ★5 | Full-flow test and security test ("a worker cannot open manager screens") | It is the MVP checklist in [mvp.md](mvp.md) section 5. |
